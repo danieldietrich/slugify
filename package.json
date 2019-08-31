@@ -1,0 +1,42 @@
+{
+  "name": "@danieldietrich/slugify",
+  "version": "0.0.0",
+  "description": "Turns strings into beautiful URL slugs.",
+  "keywords": [
+    "ascii", "characters", "latin-1", "path segment", "roman", "slugify", "symbols", "translator", "unicode", "url"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -fr dist && tslint --project tsconfig.json && tsc --project tsconfig.build.json",
+    "prepare": "npm run test && npm run build",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danieldietrich/slugify"
+  },
+  "homepage": "https://github.com/danieldietrich/slugify",
+  "bugs": "https://github.com/danieldietrich/slugify/issues",
+  "author": {
+    "name": "Daniel Dietrich",
+    "email": "cafebab3@gmail.com",
+    "url": "https://danieldietrich.dev"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.3",
+    "codecov": "^3.5.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.19.0",
+    "typescript": "^3.6.2"
+  }
+}
