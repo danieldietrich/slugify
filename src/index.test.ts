@@ -165,7 +165,6 @@ test('Should separate email address parts', () => {
         .toBe("cafebab3-gmail-com");
 });
 
-
 function flatten<T>(array: T[][]): T[] {
     return ([] as T[]).concat.apply([], array);
 }
