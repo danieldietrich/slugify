@@ -1,5 +1,7 @@
 # Contribution Guidelines
 
+The characters are modified in [index.test.ts](./src/index.test.ts). The unit tests generate the readme table and the dictionary (see [index.ts](./src/index.ts)).
+
 ## Prerequisites
 
 * List global installations: `npm list -g --depth=0`
