@@ -1,4 +1,4 @@
-[![npm version](https://img.shields.io/npm/v/@danieldietrich/slugify?logo=npm&style=flat-square)](https://www.npmjs.com/package/@danieldietrich/slugify/)[![build](https://img.shields.io/travis/danieldietrich/slugify?style=flat-square)](https://travis-ci.org/danieldietrich/slugify/)[![coverage](https://img.shields.io/codecov/c/github/danieldietrich/slugify?style=flat-square)](https://codecov.io/gh/danieldietrich/slugify/)[![license](https://img.shields.io/github/license/danieldietrich/slugify?style=flat-square)](https://opensource.org/licenses/MIT/)
+[![npm version](https://img.shields.io/npm/v/@danieldietrich/slugify?logo=npm&style=flat-square)](https://www.npmjs.com/package/@danieldietrich/slugify/)[![build](https://img.shields.io/travis/danieldietrich/slugify?style=flat-square)](https://travis-ci.org/danieldietrich/slugify/)[![coverage](https://img.shields.io/codecov/c/github/danieldietrich/slugify?style=flat-square)](https://codecov.io/gh/danieldietrich/slugify/)![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@danieldietrich/slugify?style=flat-square)![types](https://img.shields.io/npm/types/typescript?style=flat-square)[![license](https://img.shields.io/github/license/danieldietrich/slugify?style=flat-square)](https://opensource.org/licenses/MIT/)
 &nbsp;
 [![patrons](https://img.shields.io/liberapay/patrons/danieldietrich?logo=liberapay&style=flat-square)](https://liberapay.com/danieldietrich/)[![donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://paypal.me/danieldietrich)
 &nbsp;
@@ -8,15 +8,19 @@
 
 Turns strings into user-friendly and search engine-friendly [URL slugs](https://en.wikipedia.org/wiki/Clean_URL#Slug).
 
-Slugify transforms a subset of unicode characters to the alphabet `a-z 0-9 -`, which is a subset of valid [URI](http://tools.ietf.org/html/rfc3986) characters. The transformation is based on an opinionated [dictionary](#dictionary) that is tailored to the European region.
+Slugify uses a [dictionary](#dictionary) to translate certain glyphs to the alphabet `[a-zA-Z0-9]`. The words are joined with hyphen '-' by default.
+
+A highlight of this solution is the readability of slugs. Only words and a single separator type are used.
 
 ## Installation
 
 ```bash
-npm install --save @danieldietrich/slugify
+npm i @danieldietrich/slugify
 ```
 
 ## Usage
+
+The module supports ES6 _import_ and CommonJS _require_ style.
 
 ```ts
 import slugify from 'slugify';
@@ -26,6 +30,9 @@ slugify('I ♥ it!');
 
 // I_love_it
 slugify('I ♥ it!', '_');
+
+// cafebab3-gmail-com
+slugify('cafebab3@gmail.com');
 ```
 
 ## Dictionary
@@ -378,9 +385,9 @@ The dictionary covers subsets of the following [Unicode blocks](https://en.wikip
 
 | Code | Glyph | Value |
 | :--: | :---: | :---: |
-| <tt>2200</tt> | <tt>∀</tt> | <tt>forall</tt> |
+| <tt>2200</tt> | <tt>∀</tt> | <tt>for all</tt> |
 | <tt>2203</tt> | <tt>∃</tt> | <tt>exists</tt> |
-| <tt>2205</tt> | <tt>∅</tt> | <tt>emptyset</tt> |
+| <tt>2205</tt> | <tt>∅</tt> | <tt>empty set</tt> |
 | <tt>2208</tt> | <tt>∈</tt> | <tt>in</tt> |
 | <tt>220a</tt> | <tt>∊</tt> | <tt>in</tt> |
 | <tt>220b</tt> | <tt>∋</tt> | <tt>contains</tt> |

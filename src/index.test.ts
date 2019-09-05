@@ -8,7 +8,7 @@ test('Should have strict monotonic unicode symbol order', () => {
             try {
                 expect(glyph.charCodeAt(0)).toBeGreaterThan(prevGlyph.charCodeAt(0));
             } catch (err) {
-                console.error(`'${glyph}' ${glyph.charCodeAt(0).toString(16)} must appear before '${prevGlyph}' ${prevGlyph.charCodeAt(0).toString(16)}`);
+                console.log(`'${glyph}' ${glyph.charCodeAt(0).toString(16)} must appear before '${prevGlyph}' ${prevGlyph.charCodeAt(0).toString(16)}`);
                 throw err;
             }
             prevGlyph = glyph;
@@ -29,13 +29,13 @@ test('Should contain one-character glyphs only', () => {
     });
 });
 
-test('Should match alphabet complement for all glyphs', () => {
+test('Should be valid glyph', () => {
     Object.values(unicode).forEach(block => {
         Object.keys(block).forEach(glyph => {
             try {
-                expect(alphabet.test(glyph)).toBeFalsy();
+                expect(valid_glyph.test(glyph)).toBeTruthy();
             } catch (err) {
-                console.log(`Glyph '${glyph}' must not be in ${alphabet}`);
+                console.log(`Glyph '${glyph}' must not be in ${valid_glyph}`);
                 throw err;
             }
         });
@@ -43,8 +43,8 @@ test('Should match alphabet complement for all glyphs', () => {
 });
 
 test('Should match alphabet for all translations', () => {
-    Object.values(unicode).every(block => {
-        Object.entries(block).every(([glyph, value]) => {
+    Object.values(unicode).forEach(block => {
+        Object.entries(block).forEach(([glyph, value]) => {
             try {
                 expect(alphabet.test(value)).toBeTruthy();
             } catch (err) {
@@ -56,8 +56,8 @@ test('Should match alphabet for all translations', () => {
 });
 
 test('Should contain no empty translations', () => {
-    Object.values(unicode).every(block => {
-        Object.entries(block).every(([glyph, value]) => {
+    Object.values(unicode).forEach(block => {
+        Object.entries(block).forEach(([glyph, value]) => {
             try {
                 expect(value.trim().length).toBeGreaterThan(0);
             } catch (err) {
@@ -145,6 +145,26 @@ test('Should translate heart glyph', () => {
     expect(slugify("I ♥ it!")).toBe("I-love-it");
 });
 
+test('Should remove non-tranlated characters', () => {
+    expect(slugify("Emojis like 😊 or ☕️ aren't supported 🤷🏼‍♂️."))
+        .toBe("Emojis-like-or-arent-supported");
+});
+
+test('Should remove apostrophe', () => {
+    expect(slugify("It's her's, not Samuel's."))
+        .toBe("Its-hers-not-Samuels");
+});
+
+test('Should remove double quotes', () => {
+    expect(slugify("Double\"quote"))
+        .toBe("Doublequote");
+});
+
+test('Should separate email address parts', () => {
+    expect(slugify("cafebab3@gmail.com"))
+        .toBe("cafebab3-gmail-com");
+});
+
 function flatten<T>(array: T[][]): T[] {
     return ([] as T[]).concat.apply([], array);
 }
@@ -157,7 +177,8 @@ function padLeft(str: string, length: number, char: string = ' '): string {
     return res;
 }
 
-const alphabet = /^[a-zA-Z0-9\-]+$/;
+const alphabet = /^[a-zA-Z0-9 \-]+$/;
+const valid_glyph = /[^\w\s]/;
 
 const unicode: Record<string, Record<string, string>> = {
     "Basic Latin": {
@@ -478,9 +499,9 @@ const unicode: Record<string, Record<string, string>> = {
         '™': 'TM',
     },
     "Mathematical Operators": {
-        '∀': 'forall',
+        '∀': 'for all',
         '∃': 'exists',
-        '∅': 'emptyset',
+        '∅': 'empty set',
         '∈': 'in',
         '∊': 'in',
         '∋': 'contains',
