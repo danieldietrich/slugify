@@ -5,7 +5,7 @@
  * @param separator (optional) a separator, default: hyphen '-'
  * @returns a new string, consisting of letters [a-zA-Z], digits [0-9] and the `separator`
  */
-export default function slugify(input: string, separator: string = '-'): string {
+export = function slugify(input: string, separator: string = '-'): string {
     if (!input) {
         return input; // also returns unaltered null, undefined, 0 and false
     }
@@ -19,7 +19,7 @@ export default function slugify(input: string, separator: string = '-'): string 
     } else {
         return res.substring(from, res.length - back);
     }
-}
+};
 
 const ignored = /[^a-z0-9]+/gi;
 
