@@ -1,9 +1,18 @@
 {
   "name": "@danieldietrich/slugify",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Turns strings into beautiful URL slugs.",
   "keywords": [
-    "ascii", "characters", "latin-1", "path segment", "roman", "slugify", "symbols", "translator", "unicode", "url"
+    "ascii",
+    "characters",
+    "latin-1",
+    "path segment",
+    "roman",
+    "slugify",
+    "symbols",
+    "translator",
+    "unicode",
+    "url"
   ],
   "engines": {
     "node": ">=10.0.0"
