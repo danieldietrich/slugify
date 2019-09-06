@@ -2,7 +2,7 @@
 &nbsp;
 [![build](https://img.shields.io/travis/danieldietrich/slugify?logo=github&style=flat-square)](https://travis-ci.org/danieldietrich/slugify/)[![coverage](https://img.shields.io/codecov/c/github/danieldietrich/slugify?style=flat-square)](https://codecov.io/gh/danieldietrich/slugify/)
 &nbsp;
-[![patrons](https://img.shields.io/liberapay/patrons/danieldietrich?style=flat-square)](https://liberapay.com/danieldietrich/)
+[![donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?logo=paypal&style=flat-square)](https://paypal.me/danieldietrich13)[![patrons](https://img.shields.io/liberapay/patrons/danieldietrich?style=flat-square)](https://liberapay.com/danieldietrich/)
 &nbsp;
 [![Follow](https://img.shields.io/twitter/follow/danieldietrich?label=Follow&style=social)](https://twitter.com/danieldietrich/)
 
@@ -10,7 +10,7 @@
 
 Turns strings into user-friendly and search engine-friendly [URL slugs](https://en.wikipedia.org/wiki/Clean_URL#Slug).
 
-Slugify uses a [dictionary](https://github.com/danieldietrich/slugify/wiki/Dictionary) to translate certain glyphs to the alphabet `[a-zA-Z0-9]`. The words are joined with hyphen '-' by default.
+Slugify uses a [dictionary](https://github.com/danieldietrich/slugify/wiki/Dictionary) to translate certain glyphs to the alphabet `a-z A-Z 0-9`. Beside whitespace, the characters `!#$%&()*+,-./:;=?@[\]_|~` are considered as space. All other characters are removed, especially single `'` and double `"` quotes. Finally, the words are joined, by default with hyphen '-'.
 
 A highlight of this solution is the readability of slugs. Only words and a single separator type are used.
 
@@ -35,6 +35,9 @@ slugify('I ♥ it!', '_');
 
 // cafebab3-gmail-com
 slugify('cafebab3@gmail.com');
+
+// dos-and-donts
+slugify("Do's and Don'ts").toLowerCase();
 ```
 
 ---
