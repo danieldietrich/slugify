@@ -82,37 +82,10 @@ test('Should use the generated dictionary', () => {
 PLEASE SYNC './index.ts' BY COPY/PASTING THIS:
 [---8<---*snip*---8<---*snap*--->
 ${minified}
-<---8<---*snip*---8<---*snap*---]`);
-        throw err;
-    }
-});
+<---8<---*snip*---8<---*snap*---]
 
-test('Should find generated unicode table in README.md', () => {
-    const table = `## Dictionary
-
-The dictionary covers subsets of the following [Unicode blocks](https://en.wikipedia.org/wiki/List_of_Unicode_characters):
-
-${Object.keys(unicode).map(name => `* [${name}](#${slugify(name)})`).join('\n')}
-
-${Object.entries(unicode).map(([name, block]) => {
-        return `### ${name}
-
-| Code | Glyph | Value |
-| :--: | :---: | :---: |
-${Object.entries(block).map(([char, translation]) => {
-    return `| <tt>${padLeft(char.charCodeAt(0).toString(16), 4, '0')}</tt> | <tt>${char}</tt> | <tt>${translation}</tt> |`;
-}).join('\n')}`;
-    }).join('\n\n')
-}`;
-    const readme = fs.readFileSync('./README.md').toString('utf-8');
-    try {
-        expect(readme).toContain(table);
-    } catch (err) {
-        console.log(`THERE HAVE BEEN CHANGES DETECTED.
-PLEASE SYNC './README.md' BY COPY/PASTING THIS:
-[---8<---*snip*---8<---*snap*--->
-${table}
-<---8<---*snip*---8<---*snap*---]`);
+PLEASE ALSO UPDATE THE WIKI PAGE ON A NEW RELEASE! https://github.com/danieldietrich/slugify/wiki/Dictionary
+`);
         throw err;
     }
 });
@@ -167,14 +140,6 @@ test('Should separate email address parts', () => {
 
 function flatten<T>(array: T[][]): T[] {
     return ([] as T[]).concat.apply([], array);
-}
-
-function padLeft(str: string, length: number, char: string = ' '): string {
-    let res = str;
-    while (res.length < length) {
-        res = char + res;
-    }
-    return res;
 }
 
 const alphabet = /^[a-zA-Z0-9 \-]+$/;
