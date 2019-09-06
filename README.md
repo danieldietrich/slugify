@@ -2,7 +2,7 @@
 &nbsp;
 [![build](https://img.shields.io/travis/danieldietrich/slugify?logo=github&style=flat-square)](https://travis-ci.org/danieldietrich/slugify/)[![coverage](https://img.shields.io/codecov/c/github/danieldietrich/slugify?style=flat-square)](https://codecov.io/gh/danieldietrich/slugify/)
 &nbsp;
-[![donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?logo=paypal&style=flat-square)](https://paypal.me/danieldietrich)[![patrons](https://img.shields.io/liberapay/patrons/danieldietrich?style=flat-square)](https://liberapay.com/danieldietrich/)
+[![patrons](https://img.shields.io/liberapay/patrons/danieldietrich?style=flat-square)](https://liberapay.com/danieldietrich/)
 &nbsp;
 [![Follow](https://img.shields.io/twitter/follow/danieldietrich?label=Follow&style=social)](https://twitter.com/danieldietrich/)
 
