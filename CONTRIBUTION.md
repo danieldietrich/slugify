@@ -34,11 +34,11 @@ General:
 
 Conventions:
 
-* We allow only glyphs consisting of one character. Emojis are not supported.
+* We allow only glyphs consisting of one character
 * Upper case glyphs are translated first upper (Ä → Ae)
 * Upper case glyphs that consist of two letters are translated ALL UPPER CASE (Æ → AE)
 * Lower case glyphs are translated to all lower (ä → ae)
-* Constants and abbreviations are translated to to their letters (ℇ → e)
+* Constants are translated to letters (ℇ → e)
 * Copyright symbols are translated to UPPER CASE abbreviations (™ → TM)
 * Math symbols (including the Greek alphabet) are translated to names (𝜋 → pi)
 * Units are translated to names (℃ → Celsius)
