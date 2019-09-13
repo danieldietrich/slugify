@@ -4,16 +4,16 @@ The characters are modified in [index.test.ts](./src/index.test.ts). The unit te
 
 ## Prerequisites
 
-* List global installations: `npm list -g --depth=0`
-* Globally install [npm-check-updates](https://github.com/tjunnone/npm-check-updates): `npm install -g npm-check-updates`
-* Globally install [release-it](https://github.com/release-it/release-it): `npm install -g release-it`
-* Locally install project dependencies: `npm install`
+* List global installations: `npm ls -g --depth=0`
+* Globally install [npm-check-updates](https://github.com/tjunnone/npm-check-updates): `npm i -g npm-check-updates`
+* Globally install [release-it](https://github.com/release-it/release-it): `npm i -g release-it`
+* Locally install project dependencies: `npm i`
 
 ## Scripts
 
 Development:
 
-* Upgrade dependencies: `ncu --upgrade` (might require a `npm install` afterwards)
+* Upgrade dependencies: `ncu -u` (might require a `npm i` afterwards)
 * Run tests: `npm run test` (see [coverage/](./coverage/lcov-report/index.ts.html))
 * Build project: `npm run build` (see [dist/](./dist/))
 
