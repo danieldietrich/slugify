@@ -1,6 +1,6 @@
 {
   "name": "@danieldietrich/slugify",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Turns strings into beautiful URL slugs.",
   "keywords": [
     "ascii",
