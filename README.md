@@ -25,7 +25,7 @@ npm i @danieldietrich/slugify
 The module supports ES6 _import_ and CommonJS _require_ style.
 
 ```ts
-import slugify from 'slugify';
+import slugify from '@danieldietrich/slugify';
 
 // I-love-it
 slugify('I ♥ it!');
