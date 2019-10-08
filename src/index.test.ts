@@ -142,7 +142,7 @@ function flatten<T>(array: T[][]): T[] {
     return ([] as T[]).concat.apply([], array);
 }
 
-const alphabet = /^[a-zA-Z0-9 \-]+$/;
+const alphabet = /^[a-zA-Z0-9 -]+$/;
 const valid_glyph = /[^\w\s]/;
 
 const unicode: Record<string, Record<string, string>> = {

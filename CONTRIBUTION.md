@@ -8,6 +8,15 @@ The characters are modified in [index.test.ts](./src/index.test.ts). The unit te
 * Globally install [npm-check-updates](https://github.com/tjunnone/npm-check-updates): `npm i -g npm-check-updates`
 * Globally install [release-it](https://github.com/release-it/release-it): `npm i -g release-it`
 * Locally install project dependencies: `npm i`
+* Enable ESLint for TypeScript in VS Code settings.json:
+    ```json
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ]
+    ```
 
 ## Scripts
 

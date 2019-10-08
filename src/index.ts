@@ -23,7 +23,7 @@ export = function slugify(input: string, separator: string = '-'): string {
 };
 
 // characters to be removed (none-words/-whitespace/-separators)
-const none = /[^\w\s!#$%&()*+,-./:;=?@\[\\\]_|~]/g;
+const none = /[^\w\s!#$%&()*+,-./:;=?@[\\\]_|~]/g;
 
 // characters outside of words (glued together using separator)
 const glue = /[^a-z0-9]+/gi;
