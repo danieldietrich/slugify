@@ -34,6 +34,7 @@ module.exports = {
         "no-cond-assign": "error",                        // assignments if (a = '1') are error-prone
         "no-debugger": "error",                           // disallow debugger; statements
         "no-eval": "error",                               // eval is considered unsafe
+        "no-inner-declarations": "off",                   // we need to have 'namespace' functions when using TS 'export ='
         "no-labels": "error",                             // GOTO is only used in BASIC ;)
         "no-multiple-empty-lines": ["error", {"max": 1}], // two or more empty lines need to be fused to one
         "no-new-wrappers": "error",                       // there is no reason to wrap primitve values
@@ -58,7 +59,9 @@ module.exports = {
 
         // List of [@typescript-eslint rules](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules)
         "@typescript-eslint/adjacent-overload-signatures": "error", // grouping same method names
-        "@typescript-eslint/array-type": "error",                   // string[] instead of Array<string>
+        "@typescript-eslint/array-type": ["error", {                // string[] instead of Array<string>
+            default: "array-simple"
+        }],
         "@typescript-eslint/ban-types": "error",                    // bans types like String in favor of string
         "@typescript-eslint/class-name-casing": "error",            // classes and interfaces must be PascalCased
         "@typescript-eslint/indent": "error",                       // consistent indentation
