@@ -9,14 +9,15 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            github.pullRequests.createReview({
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              pull_number: context.payload.pull_request.number,
+            const { repository: repo, pull_request: pr } = context.payload
+            github.pulls.createReview({
+              owner: repo.owner.login,
+              repo: repo.name,
+              pull_number: pr.number,
               event: 'APPROVE'
             })
-            github.pullRequests.merge({
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              pull_number: context.payload.pull_request.number
+            github.pulls.merge({
+              owner: repo.owner.login,
+              repo: repo.name,
+              pull_number: pr.number
             })
